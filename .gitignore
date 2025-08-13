@@ -1,0 +1,18 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# مجازی و وابسته‌ها
+venv/
+Lib/
+Scripts/
+__pycache__/
+*.pyc
+pyvenv.cfg
+
+# فایل‌های دیتابیس لوکال
+db.sqlite3
+
+# تنظیمات سیستم عامل
+*.log
+*.pot
+*.py[co]
+
+.idea/
