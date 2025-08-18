@@ -6,4 +6,8 @@ from django.http import HttpResponse
 from django.http import  HttpResponse
 
 def home(request):
-    return HttpResponse("BI Dashboard is UP !!")
+    return render(request, 'dashboard/home.html')
+
+def about(request):
+    return render(request, 'dashboard/about.html')
+
