@@ -1,0 +1,18 @@
+{% extends "dashboard/base.html" %}
+{% block title %}کوئری‌های ذخیره‌شده{% endblock %}
+
+{% block content %}
+  <h2>لیست کوئری‌ها</h2>
+  <ul>
+    {% for item in queries %}
+      <li>
+        <a href="{% url 'dashboard:query_details' item.slug %}">
+          {{ item.title }}
+        </a>
+        — {{ item.description }}
+      </li>
+    {% empty %}
+      <li>هنوز چیزی ذخیره نشده.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
