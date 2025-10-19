@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -73,13 +74,23 @@ WSGI_APPLICATION = 'DataIntegration.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "sarbazi", #os.getenv("POSTGRES_DB", "mydb"),
+        "USER": "postgres",#os.getenv("POSTGRES_USER", "myuser"),
+        "PASSWORD": "123456" ,#os.getenv("POSTGRES_PASSWORD", "mypassword"),
+        "HOST": "127.0.0.1" ,#os.getenv("POSTGRES_HOST", "127.0.0.1"),
+        "PORT": "5432" ,#os.getenv("POSTGRES_PORT", "5432"),
+        "CONN_MAX_AGE": 60,  # اتصال پایدار برای کارایی بهتر
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
